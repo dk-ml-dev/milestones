@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepu Kushwaha - Resume (Software Developer Engineer)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: letter;
+      margin: 0.22in 0.35in 0.22in 0.35in;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --primary: #0f172a;        /* Deep slate */
+      --accent: #1d4ed8;         /* Royal blue */
+      --accent-light: #eff6ff;   /* Soft blue badge */
+      --accent-border: #bfdbfe;
+      --text-main: #1e293b;      /* Slate text */
+      --text-muted: #475569;     /* Subtext */
+      --border-color: #cbd5e1;
+      --badge-bg: #f1f5f9;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', -apple-system, sans-serif;
+      color: var(--text-main);
+      background-color: #e2e8f0;
+      line-height: 1.18;
+      font-size: 8.45pt;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Sticky Print Navigation Bar */
+    .no-print-bar {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+      padding: 10px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 13px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+    .no-print-bar .badge-live {
+      background: rgba(37, 99, 235, 0.25);
+      border: 1px solid #3b82f6;
+      color: #93c5fd;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .no-print-bar button {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 7px 18px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.4);
+      transition: all 0.2s ease;
+    }
+    .no-print-bar button:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.5);
+    }
+    /* Page Container */
+    .page-container {
+      max-width: 8.5in;
+      margin: 14px auto;
+      background: white;
+      padding: 0.25in 0.36in;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      border-radius: 6px;
+    }
+    @media print {
+      body {
+        background: white;
+        font-size: 8.3pt;
+      }
+      .no-print-bar {
+        display: none !important;
+      }
+      .page-container {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      a {
+        text-decoration: none;
+        color: inherit !important;
+      }
+    }
+    /* Header Area */
+    .header {
+      text-align: center;
+      margin-bottom: 3px;
+      position: relative;
+    }
+    .candidate-name {
+      font-size: 17.5pt;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 2.5px;
+    }
+    .candidate-title {
+      font-size: 8.6pt;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .candidate-title::before,
+    .candidate-title::after {
+      content: "";
+      width: 24px;
+      height: 1.5px;
+      background: var(--accent-border);
+      display: inline-block;
+    }
+    /* Contacts Row */
+    .contact-info {
+      font-size: 8.3pt;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    .contact-item:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .contact-icon {
+      width: 12.5px;
+      height: 12.5px;
+      fill: currentColor;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .contact-sep {
+      color: var(--border-color);
+      font-size: 7.5pt;
+    }
+    /* Section Headings */
+    .section-title {
+      font-size: 9.3pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--primary);
+      border-bottom: 1.4px solid #1e293b;
+      padding-bottom: 1px;
+      margin-top: 3.5px;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .section-title::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 1px;
+      display: inline-block;
+    }
+    .summary-text {
+      font-size: 8.25pt;
+      text-align: justify;
+      color: var(--text-main);
+      line-height: 1.18;
+    }
+    /* Skills Visual Table */
+    .skills-table {
+      display: table;
+      width: 100%;
+      font-size: 8.25pt;
+      margin-bottom: 1px;
+    }
+    .skill-row {
+      display: table-row;
+    }
+    .skill-cat {
+      display: table-cell;
+      font-weight: 700;
+      color: var(--primary);
+      width: 165px;
+      padding: 1.2px 6px 1.2px 0;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .skill-desc {
+      display: table-cell;
+      color: var(--text-main);
+      padding: 1.2px 0 1.2px 0;
+      line-height: 1.17;
+      vertical-align: top;
+    }
+    /* Entry Headers */
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.6pt;
+      margin-top: 2.2px;
+    }
+    .entry-title {
+      font-weight: 750;
+      color: var(--primary);
+    }
+    .entry-badge {
+      font-size: 7.6pt;
+      font-weight: 700;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 0.5px 6px;
+      border-radius: 3px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .entry-date {
+      font-size: 8.1pt;
+      font-weight: 600;
+      color: #475569;
+    }
+    .entry-subheader {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.1pt;
+      color: #334155;
+      margin-bottom: 1px;
+    }
+    .entry-role {
+      font-weight: 600;
+      font-style: italic;
+      color: #2563eb;
+    }
+    .entry-loc {
+      font-style: italic;
+      color: #64748b;
+    }
+    /* Project Badges Bar */
+    .project-tech-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tech-tag {
+      font-size: 7pt;
+      font-weight: 600;
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      border-radius: 2.5px;
+      padding: 0 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Bullet Points */
+    ul.bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 1.8px;
+    }
+    ul.bullet-list li {
+      font-size: 8.25pt;
+      color: var(--text-main);
+      margin-bottom: 0.7px;
+      line-height: 1.17;
+      text-align: justify;
+      position: relative;
+      padding-left: 11px;
+    }
+    ul.bullet-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 8.5pt;
+      line-height: 1;
+      top: 0;
+    }
+    ul.bullet-list li strong {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Visual Control Bar -->
+  <div class="no-print-bar">
+    <span class="badge-live">★ Software Developer Engineer (SDE)</span>
+    <span><strong>Deepu Kushwaha:</strong> Clean Engineering Language &amp; 1-Page Layout</span>
+    <button onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="candidate-name">DEEPU KUSHWAHA</h1>
+      <div class="candidate-title">Software Developer Engineer</div>
+      <div class="contact-info">
+        <a class="contact-item" href="tel:+919898066408" title="Call Deepu">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
+          +91 98980 66408
+        </a>
+        <span class="contact-sep">|</span>
+        <a class="contact-item" href="mailto:deepu05.kushwaha@gmail.com" title="Email Deepu">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          deepu05.kushwaha@gmail.com
+        </a>
+        <span class="contact-sep">|</span>
+        <a class="contact-item" href="https://www.linkedin.com/in/deepukushwaha/" target="_blank" rel="noopener noreferrer">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+          linkedin.com/in/deepukushwaha
+        </a>
+        <span class="contact-sep">|</span>
+        <a class="contact-item" href="https://github.com/dk-ml-dev" target="_blank" rel="noopener noreferrer">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          github.com/dk-ml-dev
+        </a>
+        <span class="contact-sep">|</span>
+        <a class="contact-item" href="https://leetcode.com/u/veEdZmG4uk/" target="_blank" rel="noopener noreferrer">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.825 5.86 5.86 0 0 0 1.954-.153 5.753 5.753 0 0 0 1.674-.757l3.654-3.084a1.414 1.414 0 0 0 .034-2.023 1.398 1.398 0 0 0-2.007-.034l-3.666 3.092a3.02 3.02 0 0 1-2.458.53 3.09 3.09 0 0 1-2.18-1.996 3.018 3.018 0 0 1-.03-1.282 3.02 3.02 0 0 1 .655-1.229l3.864-4.137 4.96-5.326a1.373 1.373 0 0 0-.97-2.336zM15.42 8.784a1.4 1.4 0 0 0-.987.414l-4.14 4.141a1.4 1.4 0 1 0 1.98 1.98l4.14-4.14a1.4 1.4 0 0 0-.993-2.395zm4.843 4.843a1.4 1.4 0 0 0-.99.41l-1.98 1.98a1.4 1.4 0 1 0 1.98 1.98l1.98-1.98a1.4 1.4 0 0 0-.99-2.39z"/></svg>
+          leetcode.com/u/veEdZmG4uk
+        </a>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">
+      Computer Engineering graduate (GTU, 8.55 CGPA) with practical experience in <strong>Python, SQL, REST APIs, and Docker</strong>. Hands-on background in machine learning and data pipelines from <strong>Hackveda Solutions</strong>, combined with enterprise systems monitoring at <strong>GSECL</strong>. Active competitive programmer with <strong>100+ LeetCode problems solved in Python</strong> across core Data Structures and Algorithms. Experienced in code debugging, peer walkthroughs, and technical documentation. Seeking an entry-level <strong>Software Developer Engineer (SDE)</strong> position to build reliable software and contribute to high-impact development teams.
+    </div>
+
+    <!-- Technical Skills Matrix -->
+    <div class="section-title">Technical Skills Matrix</div>
+    <div class="skills-table">
+      <div class="skill-row">
+        <div class="skill-cat">Languages:</div>
+        <div class="skill-desc"><strong>Python (Core &amp; Advanced)</strong>, <strong>SQL</strong> (PostgreSQL, MySQL), C++, <strong>JavaScript</strong> (ES6+), HTML5, CSS3</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Core Computer Science:</div>
+        <div class="skill-desc"><strong>Data Structures &amp; Algorithms (DSA)</strong>, Object-Oriented Programming (OOP), DBMS, Operating Systems, Computer Networks</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Backend &amp; Web:</div>
+        <div class="skill-desc"><strong>REST APIs</strong>, <strong>FastAPI</strong>, Flask, <strong>JSON Schemas</strong>, Postman (API Testing &amp; Mocking), Client-Server Architecture</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Databases &amp; SQL:</div>
+        <div class="skill-desc"><strong>PostgreSQL</strong>, <strong>MySQL</strong>, Complex Queries (Multi-table JOINs, Subqueries, GROUP BY, Indexing), Schema Design</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Tools &amp; DevOps:</div>
+        <div class="skill-desc"><strong>Docker</strong>, <strong>Git</strong>, <strong>GitHub</strong> (Pull Requests, Code Reviews), <strong>GitHub Actions</strong> (CI/CD), Linux CLI, Wireshark, Jira</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Engineering Practices:</div>
+        <div class="skill-desc"><strong>Agile/Scrum</strong>, Unit &amp; Regression Testing (PyTest, Playwright), Code Walkthroughs, Technical Documentation</div>
+      </div>
+    </div>
+
+    <!-- Work Experience & Internships -->
+    <div class="section-title">Work Experience &amp; Internships</div>
+
+    <div class="entry-header">
+      <span class="entry-title">Hackveda Solutions</span>
+      <span class="entry-date">Jan 2025 – Apr 2025</span>
+    </div>
+    <div class="entry-subheader">
+      <span class="entry-role">Data Science Intern</span>
+      <span class="entry-loc">Remote</span>
+    </div>
+    <ul class="bullet-list">
+      <li>Performed data cleaning, preprocessing, and feature transformation using <strong>Python (Pandas, NumPy)</strong>, resolving missing values, schema inconsistencies, and outliers.</li>
+      <li>Wrote and optimized <strong>SQL queries (JOINs, GROUP BY, subqueries)</strong> to extract and aggregate structured records from relational databases, improving query runtime by <strong>25%</strong>.</li>
+      <li>Built and evaluated baseline predictive machine learning models using <strong>Scikit-learn</strong>, measuring accuracy, precision, and recall on tabular datasets.</li>
+      <li>Developed automated Python data validation routines to check dataset integrity, cutting manual data auditing time by <strong>40%</strong>.</li>
+      <li>Collaborated in two-week <strong>Agile Scrum sprints</strong>, tracking tasks in <strong>Jira</strong>, participating in team reviews, and documenting analysis workflows.</li>
+    </ul>
+
+    <div class="entry-header">
+      <span class="entry-title">GSECL (Gujarat State Electricity Corp. Ltd.) – Ukai Thermal Power Station</span>
+      <span class="entry-date">Jun 2024 – Jul 2024</span>
+    </div>
+    <div class="entry-subheader">
+      <span class="entry-role">Systems &amp; Network Engineering Intern</span>
+      <span class="entry-loc">Gujarat, India</span>
+    </div>
+    <ul class="bullet-list">
+      <li>Monitored local network infrastructure and server racks across plant units, ensuring continuous system communication and maintaining <strong>99.9% uptime</strong>.</li>
+      <li>Captured and analyzed <strong>TCP/IP and UDP packet streams</strong> using <strong>Wireshark</strong> to identify connection drops, latency spikes, and socket timeouts.</li>
+      <li>Assisted senior engineers in configuring Cisco managed switches, routers, and VLAN subnets to isolate industrial control networks from general office traffic.</li>
+      <li>Wrote standardized network troubleshooting checklists and visual topology diagrams used by the plant IT team for fast diagnostics.</li>
+    </ul>
+
+    <!-- Key Technical Projects -->
+    <div class="section-title">Key Technical Projects</div>
+
+    <div class="entry-header">
+      <span>
+        <span class="entry-title">DokuMate AI – Document Search &amp; Query API Service</span>
+        <span class="project-tech-bar">
+          <span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">FAISS</span><span class="tech-tag">Docker</span>
+        </span>
+      </span>
+      <span class="entry-badge">Full-Stack Project</span>
+    </div>
+    <ul class="bullet-list">
+      <li>Built a backend question-answering service in <strong>Python and FastAPI</strong> that lets users upload and search across multi-page PDF documents in real time.</li>
+      <li>Extracted text, created semantic chunks, and built vector embeddings indexed with <strong>FAISS</strong>, achieving search retrieval times under <strong>100ms</strong>.</li>
+      <li>Created REST API endpoints with structured JSON schemas and robust error handling for external LLM API calls.</li>
+      <li>Packaged the service with a multi-stage <strong>Dockerfile</strong>, allowing any team member to spin up and run the entire application locally with one command.</li>
+    </ul>
+
+    <div class="entry-header">
+      <span>
+        <span class="entry-title">Vehicle Accident Alert &amp; Telemetry System</span>
+        <span class="project-tech-bar">
+          <span class="tech-tag">Embedded C</span><span class="tech-tag">Python</span><span class="tech-tag">ATmega328P</span><span class="tech-tag">GPS/GSM</span>
+        </span>
+      </span>
+      <span class="entry-badge">Embedded &amp; Systems</span>
+    </div>
+    <ul class="bullet-list">
+      <li>Built an embedded alert system on an <strong>ATmega328P microcontroller</strong> connected to a GPS receiver (NEO-6M) and GSM module (SIM800L).</li>
+      <li>Wrote C firmware using hardware <strong>Interrupt Service Routines (ISRs)</strong> and accelerometer thresholds to detect vehicle collision impacts in under <strong>40ms</strong>.</li>
+      <li>Automated SMS and HTTP alert dispatch over cellular networks using serial AT commands to transmit exact latitude and longitude coordinates.</li>
+      <li>Developed a live <strong>Python telemetry listener</strong> with <code>pySerial</code> to read serial data from the microcontroller, log events to disk, and display status updates.</li>
+    </ul>
+
+    <div class="entry-header">
+      <span>
+        <span class="entry-title">Automated CI/CD Web Testing Suite</span>
+        <span class="project-tech-bar">
+          <span class="tech-tag">Python</span><span class="tech-tag">Playwright</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">PyTest</span>
+        </span>
+      </span>
+      <span class="entry-badge">DevOps &amp; Testing</span>
+    </div>
+    <ul class="bullet-list">
+      <li>Built an automated test suite in <strong>Python</strong> using <strong>Playwright</strong> and <strong>PyTest</strong> following the Page Object Model (POM) pattern for maintainable test code.</li>
+      <li>Automated end-to-end user workflows including login, data tables, and form submissions, cutting manual browser verification time by <strong>60%</strong>.</li>
+      <li>Set up a <strong>GitHub Actions CI/CD pipeline</strong> to run the full test suite in headless Chrome automatically on every pull request before merging.</li>
+    </ul>
+
+    <!-- Education -->
+    <div class="section-title">Education</div>
+    <div class="entry-header">
+      <span class="entry-title">Gujarat Technological University</span>
+      <span class="entry-date">2021 – 2025</span>
+    </div>
+    <div class="entry-subheader">
+      <span>Bachelor of Engineering (B.E.) in Computer Engineering — <strong>CGPA: 8.55 / 10.0</strong></span>
+      <span class="entry-loc">Gujarat, India</span>
+    </div>
+    <div class="summary-text" style="margin-top: 1px;">
+      <strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Object-Oriented Programming (Python/C++), Database Management Systems (DBMS), Operating Systems, Computer Networks, Software Engineering.
+    </div>
+
+    <!-- Achievements & Technical Competencies -->
+    <div class="section-title">Achievements &amp; Coding Profile</div>
+    <ul class="bullet-list" style="margin-top: 1.5px;">
+      <li><strong>LeetCode Problem Solving:</strong> Solved <strong>100+ problems on LeetCode</strong> (<a href="https://leetcode.com/u/veEdZmG4uk/" target="_blank" style="color: var(--accent); font-weight: 600; text-decoration: none;">leetcode.com/u/veEdZmG4uk</a>) focusing on Arrays, Strings, HashMaps, Two Pointers, Trees, and Dynamic Programming.</li>
+      <li><strong>Technical Communication &amp; Mentoring:</strong> Regular experience running technical walkthroughs, explaining code logic, and reviewing peer pull requests.</li>
+      <li><strong>Working Style:</strong> Write clean, readable code; detail-oriented debugger; quick to pick up new frameworks and cloud tools.</li>
+    </ul>
+
+  </div>
+
+</body>
+</html>
